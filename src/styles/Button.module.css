@@ -15,3 +15,12 @@
 .Green:hover {
   box-shadow: 5px 5px #dddddd;
 }
+
+.Black {
+  background-color: #000000;
+  color: white;
+}
+
+.Black:hover {
+  box-shadow: 5px 5px #dddddd;
+}
