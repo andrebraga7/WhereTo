@@ -5,7 +5,7 @@ function App() {
     <div className={styles.App}>
       <header className="App-header">
         <p>
-          Body
+          Body test
         </p>
       </header>
     </div>
