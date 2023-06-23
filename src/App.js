@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import Landing from "./components/Landing";
+import Planning from "./components/Planning";
 
 function App() {
   const [currentView, setCurrentView] = useState("landing");
@@ -9,8 +10,10 @@ function App() {
     <div className={styles.App}>
       {currentView === "landing" ? (
         <Landing setCurrentView={setCurrentView} />
+      ) : currentView === "planning" ? (
+        <Planning setCurrentView={setCurrentView} />
       ) : (
-        <p>Planning</p>
+        <p>Results</p>
       )}
     </div>
   );
