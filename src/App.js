@@ -7,6 +7,8 @@ function App() {
   const [currentView, setCurrentView] = useState("landing");
 
   return (
+    // To avoid using extra libraries like react-router-dom I used a ternary condition
+    // to check the property of the currentView and load the appropriate view component
     <div className={styles.App}>
       {currentView === "landing" ? (
         <Landing setCurrentView={setCurrentView} />

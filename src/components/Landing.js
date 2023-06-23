@@ -3,10 +3,10 @@ import styles from "../styles/Landing.module.css";
 import btnStyles from "../styles/Button.module.css";
 
 function Landing({ setCurrentView }) {
-
+  // The function takes the setCurrentView as a prop to be used when an user clicks the Start Journey button
   return (
     <div>
-      <header className={styles.Header}>
+      <header className={styles.LandingHeader}>
         <img
           src="https://res.cloudinary.com/andrebraga7/image/upload/v1687535779/logo_j8yrk1.jpg"
           alt="where to logo"
