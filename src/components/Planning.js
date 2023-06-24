@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/Planning.module.css";
+// import styles from "../styles/Planning.module.css";
 import btnStyles from "../styles/Button.module.css";
 import Header from "./Header";
 import StartingPoint from "./StartingPoint";
