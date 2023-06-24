@@ -1,0 +1,36 @@
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ListItem {
+  width: 80vw;
+  margin: 1em 0;
+  color: #333333;
+  display: flex;
+  align-items: center;
+}
+
+.Dot {
+  width: 50px;
+  padding-right: 15px;
+  font-size: .8em;
+}
+
+.PostcodeBox {
+  height: 50px;
+  padding: 0 20px;
+  background-color: #EEEEEE;
+  font-size: 1.3em;
+  font-weight: 500;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Delete {
+  font-size: 1.3em;
+  padding-left: 15px;
+}

@@ -1,11 +1,10 @@
 import React from 'react'
+import Postcode from './Postcode'
 
 function PostcodesList({setPostcodes, postcodes}) {
   return (
     <div>
-      {postcodes.map((postcode, index) => (
-        <p key={index} >[{index}] - {postcode}</p>
-      ))}
+      <Postcode postcodes={postcodes} />
     </div>
   )
 }
