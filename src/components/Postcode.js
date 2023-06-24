@@ -1,12 +1,10 @@
 import React from "react";
 import styles from "../styles/Postcode.module.css";
 
-function Postcode({ postcode, index, setPostcodes }) {
-
+function Postcode({ postcode, index, setPostcodes, postcodes }) {
   const handleDelete = () => {
-    setPostcodes((prevPostcodes) => (
-      [...prevPostcodes.splice(index, 1)]
-    ));
+    const newList = postcodes.filter((postcode, currentIndex) => currentIndex !== index);
+    setPostcodes(newList);
   };
 
   return (

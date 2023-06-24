@@ -22,6 +22,7 @@ function StartingPoint({ setPostcodes }) {
       <form onSubmit={handleSubmit}>
         <input
           className={styles.Input}
+          name="postcode"
           placeholder="Enter postcode"
           value={startingPoint}
           onChange={(event) => setStartingPoint(event.target.value.toUpperCase())}

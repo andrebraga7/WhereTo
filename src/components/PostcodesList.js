@@ -28,6 +28,7 @@ function PostcodesList({ setPostcodes, postcodes }) {
               key={index}
               postcode={postcode}
               index={index}
+              postcodes={postcodes}
               setPostcodes={setPostcodes}
             />
           ))}
@@ -42,6 +43,7 @@ function PostcodesList({ setPostcodes, postcodes }) {
               </div>
               <input
                 className={styles.Input}
+                name="postcode"
                 placeholder="Enter postcode"
                 value={newStop}
                 onChange={(event) =>
