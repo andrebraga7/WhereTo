@@ -24,3 +24,17 @@
 .Black:hover {
   box-shadow: 5px 5px #dddddd;
 }
+
+.ButtonInput {
+  color: white;
+  background-color: #000000;
+  border: none;
+  width: 64vw;
+  font-size: 1.3em;
+  font-weight: 500;
+  height: 40px;
+}
+
+.ButtonInput:hover {
+  box-shadow: 5px 5px #dddddd;
+}

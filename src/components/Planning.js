@@ -17,13 +17,13 @@ function Planning({ setCurrentView }) {
       ) : (
         <PostcodesList setPostcodes={setPostcodes} postcodes={postcodes} />
       )}
-      <button
+      {/* <button
         className={`${btnStyles.Button} ${btnStyles.Black}`}
         // When user clicks button currentView updates to landing and trigers component reload
         onClick={() => setCurrentView("landing")}
       >
         Start Over
-      </button>
+      </button> */}
     </div>
   );
 }
