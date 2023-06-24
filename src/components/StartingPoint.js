@@ -5,9 +5,22 @@ import btnStyles from "../styles/Button.module.css";
 function StartingPoint({ setPostcodes }) {
   const [startingPoint, setStartingPoint] = useState("");
 
+  /** This functions takes in the postcode and formats it to have one space in the middle.
+   * It first checks to see if there is a space, if not it adds one and returns the new string.
+   */
+  const formatPostcode = (postcode) => {
+    if (postcode.at(-4) !== " ") {
+      const newPostcode = postcode.split("");
+      newPostcode.splice(-3, 0, " ");
+      return newPostcode.join("");
+    }
+    return postcode;
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setPostcodes(startingPoint);
+    const formattedPostcode = formatPostcode(startingPoint);
+    setPostcodes([formattedPostcode]);
   };
 
   return (
