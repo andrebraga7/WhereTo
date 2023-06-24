@@ -7,7 +7,7 @@ function StartingPoint({ setPostcodes }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setPostcodes(startingPoint);
+    setPostcodes(startingPoint.trim());
   };
 
   return (
@@ -23,6 +23,8 @@ function StartingPoint({ setPostcodes }) {
           placeholder="Enter postcode"
           value={startingPoint}
           onChange={(event) => setStartingPoint(event.target.value)}
+          pattern="^[A-Za-z][A-Za-z0-9]{2,3}(?:\s?[0-9][A-Za-z0-9]{2})?$"
+          maxLength={8}
         />
         <button
           className={`${btnStyles.Button} ${btnStyles.Green}`}

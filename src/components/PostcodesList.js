@@ -1,9 +1,9 @@
 import React from 'react'
 
-function PostcodesList() {
+function PostcodesList({setPostcodes, postcodes}) {
   return (
     <div>
-      <p>List goes here...</p>
+      {postcodes}
     </div>
   )
 }
