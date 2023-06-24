@@ -1,3 +1,33 @@
 .SubHeading {
   padding: 1em 2em;
 }
+
+.Container {
+  margin: auto;
+  width: 80vw;
+}
+
+.ListItem {
+  width: 80vw;
+  color: #333333;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Input {
+  height: 50px;
+  width: 80%;
+  padding: 0 20px;
+  margin-right: 10%;
+  border: none;
+  background-color: #eeeeee;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.Plus {
+  width: 10%;
+  text-align: left;
+}
