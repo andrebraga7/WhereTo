@@ -26,7 +26,7 @@ function PostcodesList({ setPostcodes, postcodes }) {
   }, [postcodes]);
 
   return (
-    <div>
+    <div className={styles.OuterBox}>
       <h2 className={styles.SubHeading}>Please add your stops</h2>
       <div>
         <div className={styles.Container}>
