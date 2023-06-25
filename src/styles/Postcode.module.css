@@ -6,10 +6,27 @@
   justify-content: space-between;
 }
 
-.Dot {
-  font-size: 0.8em;
+.SideIcon {
   width: 10%;
   text-align: left;
+}
+
+.Dot {
+  font-size: 0.8em;
+  color: black;
+  position: relative;
+  left: 5px;
+}
+
+.Square {
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 25px;
 }
 
 .PostcodeBox {
@@ -32,15 +49,17 @@
 
 .EditIcon {
   padding-right: 5vw;
+  color: #777777;
 }
 
 .EditIcon:hover {
-  color: #777777;
+  color: #333333;
 }
 
 .EditInput {
   height: 50px;
-  width: 80%;
+  width: 50%;
+  max-width: 150px;
   border: none;
   background: none;
   font-size: inherit;
@@ -58,4 +77,8 @@
   font-size: 0.8em;
   font-weight: inherit;
   padding-left: 5px;
+}
+
+.SelectDropdown:hover {
+  background-color: #333333;
 }

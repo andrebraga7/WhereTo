@@ -49,8 +49,14 @@ function Postcode({ postcode, index, postcodes, setPostcodes, selectOptions }) {
 
   return (
     <div key={index} className={styles.ListItem}>
-      <div className={styles.Dot}>
-        <i className="fa-solid fa-circle"></i>
+
+      {/* Display different icon if it's the first postcode of the list */}
+      <div className={styles.SideIcon}>
+        {index === 0 ? (
+          <i className={`${styles.Dot} fa-solid fa-circle`}></i>
+        ) : (
+          <div className={styles.Square}>{index + 1}</div>
+        )}
       </div>
 
       {edit ? (
@@ -66,6 +72,7 @@ function Postcode({ postcode, index, postcodes, setPostcodes, selectOptions }) {
             title="Valid postcodes must be A123 1AB or AB1 1AB"
             maxLength={8}
             required
+            autoFocus
           />
           <button className={btnStyles.ButtonDone} type="submit">
             Done
@@ -79,7 +86,12 @@ function Postcode({ postcode, index, postcodes, setPostcodes, selectOptions }) {
               className={`${styles.EditIcon} fa-regular fa-pen-to-square`}
               onClick={() => setEdit(true)}
             ></i>
-            <select className={styles.SelectDropdown} name="order" value={index} onChange={handleChange}>
+            <select
+              className={styles.SelectDropdown}
+              name="order"
+              value={index}
+              onChange={handleChange}
+            >
               {selectOptions}
             </select>
           </div>
