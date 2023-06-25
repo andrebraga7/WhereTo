@@ -1,0 +1,24 @@
+.FlexContainer {
+  margin: 5vh auto 0;
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TravelIcon {
+  padding: 5px;
+  font-size: 1.5em;
+  width: 80px;
+}
+
+.TravelIcon:hover {
+  color: white;
+  background-color: #005f68;
+  border-radius: 5px;
+}
+
+.Active {
+  color: white;
+  background-color: #005f68;
+  border-radius: 5px;
+}
