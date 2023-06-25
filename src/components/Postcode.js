@@ -3,18 +3,10 @@ import styles from "../styles/Postcode.module.css";
 import btnStyles from "../styles/Button.module.css";
 import { formatPostcode } from "../utils/utils";
 
-function Postcode({ postcode, index, postcodes, setPostcodes }) {
+function Postcode({ postcode, index, postcodes, setPostcodes, selectOptions }) {
   // useState definitions
   const [edit, setEdit] = useState(false);
   const [editPostcode, setEditPostcode] = useState(postcode);
-  const [newIndex, setNewIndex] = useState(index);
-
-  // Iterate throught the postcodes array and add an option tag
-  const orderOptions = postcodes.map((postcode, currentIndex) => (
-    <option key={currentIndex} value={currentIndex}>
-      {currentIndex + 1}
-    </option>
-  ));
 
   // Event handlers
   const handleDelete = () => {
@@ -37,8 +29,22 @@ function Postcode({ postcode, index, postcodes, setPostcodes }) {
     setEdit(false);
   };
 
-  const handleReorder = (event) => {
-    console.log("changing...");
+  const handleChange = (event) => {
+    const newIndex = event.target.value;
+    handleReorder(newIndex, index, postcodes);
+  };
+
+  const handleReorder = (newIndex, oldIndex, array) => {
+    const selectedItem = array[oldIndex];
+    const remainingItems = array.filter((item, index) => index !== oldIndex);
+
+    const reorderedItems = [
+      ...remainingItems.slice(0, newIndex),
+      selectedItem,
+      ...remainingItems.slice(newIndex),
+    ];
+
+    setPostcodes(reorderedItems);
   };
 
   return (
@@ -46,6 +52,7 @@ function Postcode({ postcode, index, postcodes, setPostcodes }) {
       <div className={styles.Dot}>
         <i className="fa-solid fa-circle"></i>
       </div>
+      
       {edit ? (
         <form className={styles.PostcodeBox} onSubmit={handleEdit}>
           <input
@@ -71,8 +78,8 @@ function Postcode({ postcode, index, postcodes, setPostcodes }) {
             className={`${styles.EditIcon} fa-regular fa-pen-to-square`}
             onClick={() => setEdit(true)}
           ></i>
-          <select name="order" value={newIndex} onChange={handleReorder}>
-            {orderOptions}
+          <select name="order" value={index} onChange={handleChange}>
+            {selectOptions}
           </select>
         </div>
       )}

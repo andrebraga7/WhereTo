@@ -7,6 +7,13 @@ import { formatPostcode } from "../utils/utils";
 function PostcodesList({ setPostcodes, postcodes }) {
   const [newStop, setNewStop] = useState("");
 
+  // Iterate throught the postcodes array and add an option tag
+  const selectOptions = postcodes.map((postcode, currentIndex) => [
+    <option key={currentIndex} value={currentIndex}>
+      {currentIndex + 1}
+    </option>,
+  ]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formattedPostcode = formatPostcode(newStop);
@@ -31,6 +38,7 @@ function PostcodesList({ setPostcodes, postcodes }) {
               index={index}
               postcodes={postcodes}
               setPostcodes={setPostcodes}
+              selectOptions={selectOptions}
             />
           ))}
         </div>
