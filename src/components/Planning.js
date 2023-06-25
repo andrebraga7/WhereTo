@@ -33,8 +33,8 @@ function Planning({ setCurrentView, setResult }) {
       );
       const data = await response.text();
       setResult(data);
-      setHasLoaded(true);
       setCurrentView("results");
+      setHasLoaded(true);
     } catch (error) {
       console.log(error);
     }
@@ -48,24 +48,33 @@ function Planning({ setCurrentView, setResult }) {
         <StartingPoint setPostcodes={setPostcodes} />
       ) : (
         <div>
-          <PostcodesList setPostcodes={setPostcodes} postcodes={postcodes} />
-          <button
-            className={`${btnStyles.Button} ${
-              postcodes.length === 1 ? btnStyles.Grey : btnStyles.Green
-            }`}
-            // When user clicks button currentView updates to landing and trigers component reload
-            onClick={handleClick}
-          >
-            Calculate journey
-          </button>
+          {hasLoaded ? (
+            <div>
+              <PostcodesList
+                setPostcodes={setPostcodes}
+                postcodes={postcodes}
+              />
+              <button
+                className={`${btnStyles.Button} ${
+                  postcodes.length === 1 ? btnStyles.Grey : btnStyles.Green
+                }`}
+                // When user clicks button currentView updates to landing and trigers component reload
+                onClick={handleClick}
+              >
+                Calculate journey
+              </button>
 
-          <button
-            className={`${btnStyles.Button} ${btnStyles.Black}`}
-            // When user clicks button currentView updates to landing and trigers component reload
-            onClick={() => setCurrentView("landing")}
-          >
-            Start Over
-          </button>
+              <button
+                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                // When user clicks button currentView updates to landing and trigers component reload
+                onClick={() => setCurrentView("landing")}
+              >
+                Start Over
+              </button>
+            </div>
+          ) : (
+            <p>spinner goes here</p>
+          )}
         </div>
       )}
     </div>
