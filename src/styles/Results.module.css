@@ -1,4 +1,20 @@
+.Container {
+  margin: auto;
+  width: 80vw;
+}
+
 .SubHeading {
   padding: 1em 2em;
   color: #005f68;
+}
+
+.Results {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.Triangle {
+  font-size: 4em;
+  color: #005f68;
+  margin: 5vh 0;
 }

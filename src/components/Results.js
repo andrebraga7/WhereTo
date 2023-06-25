@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "../styles/Results.module.css";
+import btnStyles from "../styles/Button.module.css";
 import Header from "./Header";
 
-function Results({ result }) {
+function Results({ setCurrentView, result }) {
   const totalMinutesArray = [];
   const totalDistanceArray = [];
 
@@ -30,16 +31,36 @@ function Results({ result }) {
   return (
     <div>
       <Header />
-      <h2 className={styles.SubHeading}>Your total travel distance is:</h2>
-      {totalTime.hours === 0 ? (
-        <p>{totalMinutes} minutes</p>
+
+      {result ? (
+        <div className={styles.Container}>
+          <h2 className={styles.SubHeading}>Your total travel distance is:</h2>
+          <p className={styles.Results}>{totalDistance} miles</p>
+
+          <h2 className={styles.SubHeading}>Your total travel time is:</h2>
+          {totalTime.hours === 0 ? (
+            <p className={styles.Results}>{totalMinutes} minutes</p>
+          ) : (
+            <p className={styles.Results}>
+              {totalTime.hours} hours and {totalTime.minutes} minutes
+            </p>
+          )}
+        </div>
       ) : (
-        <p>
-          {totalTime.hours} hours and {totalTime.minutes} minutes
-        </p>
+        <div className={styles.Container}>
+          <i className={`${styles.Triangle} fa-solid fa-triangle-exclamation`}></i>
+          <p>Oh dear! We seam to have a flat tyre...</p>
+          <p>Please verify that all postcodes are valid and try again</p>
+        </div>
       )}
-      <h2 className={styles.SubHeading}>Your total travel time is:</h2>
-      <p>{totalDistance} miles</p>
+
+      <button
+        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        // When user clicks button currentView updates to landing and trigers component reload
+        onClick={() => setCurrentView("landing")}
+      >
+        Start Over
+      </button>
     </div>
   );
 }

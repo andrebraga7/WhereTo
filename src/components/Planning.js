@@ -5,6 +5,7 @@ import Header from "./Header";
 import StartingPoint from "./StartingPoint";
 import PostcodesList from "./PostcodesList";
 import TravelMode from "./TravelMode";
+import Spinner from "../assets/Spinner";
 
 function Planning({ setCurrentView, setResult }) {
   // useState hook to create a postcodes array
@@ -43,13 +44,16 @@ function Planning({ setCurrentView, setResult }) {
   return (
     <div>
       <Header />
-      <TravelMode travelMode={travelMode} setTravelMode={setTravelMode} />
       {!postcodes.length ? (
         <StartingPoint setPostcodes={setPostcodes} />
       ) : (
         <div>
           {hasLoaded ? (
             <div>
+              <TravelMode
+                travelMode={travelMode}
+                setTravelMode={setTravelMode}
+              />
               <PostcodesList
                 setPostcodes={setPostcodes}
                 postcodes={postcodes}
@@ -58,7 +62,7 @@ function Planning({ setCurrentView, setResult }) {
                 className={`${btnStyles.Button} ${
                   postcodes.length === 1 ? btnStyles.Grey : btnStyles.Green
                 }`}
-                // When user clicks button currentView updates to landing and trigers component reload
+                // When user clicks button currentView updates to results and trigers component reload
                 onClick={handleClick}
               >
                 Calculate journey
@@ -73,7 +77,7 @@ function Planning({ setCurrentView, setResult }) {
               </button>
             </div>
           ) : (
-            <p>spinner goes here</p>
+            <Spinner />
           )}
         </div>
       )}

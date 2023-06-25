@@ -17,7 +17,7 @@ function App() {
       ) : currentView === "planning" ? (
         <Planning setCurrentView={setCurrentView} setResult={setResult} />
       ) : (
-        <Results result={result} />
+        <Results setCurrentView={setCurrentView} result={result} />
       )}
     </div>
   );
