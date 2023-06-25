@@ -22,3 +22,15 @@
   background-color: #005f68;
   border-radius: 5px;
 }
+
+@media screen and (min-width: 500px) {
+  .FlexContainer {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .FlexContainer {
+    width: 30vw;
+  }
+}

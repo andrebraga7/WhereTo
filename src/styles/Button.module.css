@@ -4,7 +4,8 @@
   font-size: 1.3em;
   border: 1px solid black;
   border-radius: 5px;
-  margin: 1em 0 0;
+  margin: 1em auto 0;
+  display: block;
 }
 
 .Green {
@@ -38,6 +39,8 @@
   font-size: 1.3em;
   font-weight: 500;
   height: 40px;
+  display: block;
+  margin: auto;
 }
 
 .ButtonInput:hover {
@@ -57,4 +60,24 @@
 .ButtonDone:hover {
   background-color: #dddddd;
 
+}
+
+@media screen and (min-width: 500px) {
+  .Button {
+    width: 64vw;
+  }
+
+  .ButtonInput {
+    width: 64vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Button {
+    width: 40vw;
+  }
+
+  .ButtonInput {
+    width: 40vw;
+  }
 }

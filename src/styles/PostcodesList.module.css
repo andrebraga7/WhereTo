@@ -35,3 +35,15 @@
   width: 10%;
   text-align: left;
 }
+
+@media screen and (min-width: 500px) {
+  .Container {
+    width: 80vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Container {
+    width: 50vw;
+  }
+}
