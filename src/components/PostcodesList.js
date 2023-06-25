@@ -29,6 +29,7 @@ function PostcodesList({ setPostcodes, postcodes }) {
               key={index}
               postcode={postcode}
               index={index}
+              postcodes={postcodes}
               setPostcodes={setPostcodes}
             />
           ))}

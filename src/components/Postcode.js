@@ -3,10 +3,20 @@ import styles from "../styles/Postcode.module.css";
 import btnStyles from "../styles/Button.module.css";
 import { formatPostcode } from "../utils/utils";
 
-function Postcode({ postcode, index, setPostcodes }) {
+function Postcode({ postcode, index, postcodes, setPostcodes }) {
+  // useState definitions
   const [edit, setEdit] = useState(false);
   const [editPostcode, setEditPostcode] = useState(postcode);
+  const [newIndex, setNewIndex] = useState(index);
 
+  // Iterate throught the postcodes array and add an option tag
+  const orderOptions = postcodes.map((postcode, currentIndex) => (
+    <option key={currentIndex} value={currentIndex}>
+      {currentIndex + 1}
+    </option>
+  ));
+
+  // Event handlers
   const handleDelete = () => {
     setPostcodes((prevPostcodes) =>
       prevPostcodes.filter((postcode, currentIndex) => currentIndex !== index)
@@ -25,6 +35,10 @@ function Postcode({ postcode, index, setPostcodes }) {
       })
     );
     setEdit(false);
+  };
+
+  const handleReorder = (event) => {
+    console.log("changing...");
   };
 
   return (
@@ -57,6 +71,9 @@ function Postcode({ postcode, index, setPostcodes }) {
             className={`${styles.EditIcon} fa-regular fa-pen-to-square`}
             onClick={() => setEdit(true)}
           ></i>
+          <select name="order" value={newIndex} onChange={handleReorder}>
+            {orderOptions}
+          </select>
         </div>
       )}
       <div className={styles.Delete} onClick={handleDelete}>
