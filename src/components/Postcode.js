@@ -5,7 +5,7 @@ import { formatPostcode } from "../utils/utils";
 
 function Postcode({ postcode, index, setPostcodes }) {
   const [edit, setEdit] = useState(false);
-  const [newPostcode, setNewPostcode] = useState(postcode);
+  const [editPostcode, setEditPostcode] = useState(postcode);
 
   const handleDelete = () => {
     setPostcodes((prevPostcodes) =>
@@ -13,8 +13,11 @@ function Postcode({ postcode, index, setPostcodes }) {
     );
   };
 
-  const handleEdit = () => {
-    const formattedPostcode = formatPostcode(newPostcode);
+  const handleEdit = (event) => {
+    event.preventDefault();
+    const formattedPostcode = formatPostcode(editPostcode);
+
+    setEditPostcode(formattedPostcode);
 
     setPostcodes((prevPostcodes) =>
       prevPostcodes.map((postcode, currentIndex) => {
@@ -30,21 +33,23 @@ function Postcode({ postcode, index, setPostcodes }) {
         <i className="fa-solid fa-circle"></i>
       </div>
       {edit ? (
-        <div className={styles.PostcodeBox}>
+        <form className={styles.PostcodeBox} onSubmit={handleEdit}>
           <input
             className={styles.EditInput}
             name="postcode"
-            value={newPostcode}
-            onChange={(event) => setNewPostcode(event.target.value)}
+            value={editPostcode}
+            onChange={(event) =>
+              setEditPostcode(event.target.value.toUpperCase())
+            }
             pattern="^[A-Za-z][A-Za-z0-9]{2,3}(?:\s?[0-9][A-Za-z0-9]{2})$"
             title="Valid postcodes must be A123 1AB or AB1 1AB"
             maxLength={8}
             required
           />
-          <button className={btnStyles.ButtonDone} onClick={() => setEdit(false)}>
+          <button className={btnStyles.ButtonDone} type="submit">
             Done
           </button>
-        </div>
+        </form>
       ) : (
         <div className={styles.PostcodeBox}>
           <span>{postcode}</span>
