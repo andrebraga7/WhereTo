@@ -52,7 +52,7 @@ function Postcode({ postcode, index, postcodes, setPostcodes, selectOptions }) {
       <div className={styles.Dot}>
         <i className="fa-solid fa-circle"></i>
       </div>
-      
+
       {edit ? (
         <form className={styles.PostcodeBox} onSubmit={handleEdit}>
           <input
@@ -74,13 +74,15 @@ function Postcode({ postcode, index, postcodes, setPostcodes, selectOptions }) {
       ) : (
         <div className={styles.PostcodeBox}>
           <span>{postcode}</span>
-          <i
-            className={`${styles.EditIcon} fa-regular fa-pen-to-square`}
-            onClick={() => setEdit(true)}
-          ></i>
-          <select name="order" value={index} onChange={handleChange}>
-            {selectOptions}
-          </select>
+          <div>
+            <i
+              className={`${styles.EditIcon} fa-regular fa-pen-to-square`}
+              onClick={() => setEdit(true)}
+            ></i>
+            <select className={styles.SelectDropdown} name="order" value={index} onChange={handleChange}>
+              {selectOptions}
+            </select>
+          </div>
         </div>
       )}
       <div className={styles.Delete} onClick={handleDelete}>
