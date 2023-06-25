@@ -4,7 +4,7 @@
 export const formatPostcode = (postcode) => {
   if (postcode.at(-4) !== " ") {
     const newPostcode = postcode.split("");
-    return newPostcode.toSpliced(-3, 0, " ");
+    return newPostcode.toSpliced(-3, 0, " ").join("");
   }
   return postcode;
 };

@@ -21,7 +21,7 @@
 .PostcodeBox {
   height: 50px;
   width: 80%;
-  padding: 0 20px;
+  padding: 0 10px 0 20px;
   background-color: #eeeeee;
   font-size: 1.3em;
   font-weight: 500;
@@ -34,4 +34,18 @@
   font-size: 1.3em;
   width: 10%;
   text-align: right;
+}
+
+.EditIcon:hover {
+  color: #777777;
+}
+
+.EditInput {
+  height: 50px;
+  width: 80%;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }

@@ -38,3 +38,18 @@
 .ButtonInput:hover {
   box-shadow: 5px 5px #dddddd;
 }
+
+.ButtonDone {
+  color: #444444;
+  background-color: #c6c6c6;
+  padding: 7px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ButtonDone:hover {
+  background-color: #dddddd;
+
+}

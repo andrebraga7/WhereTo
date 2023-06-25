@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Postcode.module.css";
+import btnStyles from "../styles/Button.module.css";
 import { formatPostcode } from "../utils/utils";
 
 function Postcode({ postcode, index, setPostcodes }) {
@@ -29,8 +30,9 @@ function Postcode({ postcode, index, setPostcodes }) {
         <i className="fa-solid fa-circle"></i>
       </div>
       {edit ? (
-        <div className={styles.PostcodeBox} onMouseLeave={handleEdit}>
+        <div className={styles.PostcodeBox}>
           <input
+            className={styles.EditInput}
             name="postcode"
             value={newPostcode}
             onChange={(event) => setNewPostcode(event.target.value)}
@@ -39,12 +41,17 @@ function Postcode({ postcode, index, setPostcodes }) {
             maxLength={8}
             required
           />
-          <i className="fa-solid fa-equals"></i>
+          <button className={btnStyles.ButtonDone} onClick={() => setEdit(false)}>
+            Done
+          </button>
         </div>
       ) : (
-        <div className={styles.PostcodeBox} onClick={() => setEdit(true)}>
+        <div className={styles.PostcodeBox}>
           <span>{postcode}</span>
-          <i className="fa-solid fa-equals"></i>
+          <i
+            className={`${styles.EditIcon} fa-regular fa-pen-to-square`}
+            onClick={() => setEdit(true)}
+          ></i>
         </div>
       )}
       <div className={styles.Delete} onClick={handleDelete}>

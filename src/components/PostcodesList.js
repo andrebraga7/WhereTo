@@ -13,6 +13,7 @@ function PostcodesList({ setPostcodes, postcodes }) {
     setPostcodes((prevPostcodes) => [...prevPostcodes, formattedPostcode]);
   };
 
+  // Will reset the add stop input when a new stop is added to the postcodes array
   useEffect(() => {
     setNewStop("");
   }, [postcodes]);
