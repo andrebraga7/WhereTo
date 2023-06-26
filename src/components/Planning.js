@@ -17,7 +17,7 @@ function Planning({ setCurrentView, setResult }) {
     postcodes.length === 1 ? event.preventDefault() : calculateJourney();
   };
 
-  // Remove space from the middle of postcode and ad %20 for API fetching
+  // Remove space from the middle of postcode and add %20 for API fetching
   const parsePostcodes = () => {
     return postcodes.map((postcode) => {
       const newPostcode = postcode.split("");
@@ -25,6 +25,7 @@ function Planning({ setCurrentView, setResult }) {
     });
   };
 
+  // API fetch with async
   const calculateJourney = async () => {
     setHasLoaded(false);
     const parsed = parsePostcodes();
@@ -33,12 +34,22 @@ function Planning({ setCurrentView, setResult }) {
         `https://media.carecontrolsystems.co.uk/Travel/JourneyPlan.aspx?Route=${parsed.toString()}&Format=Miles&TravelMode=${travelMode}&TrafficModel=best_guess`
       );
       const data = await response.text();
-      setResult(data);
-      setCurrentView("results");
-      setHasLoaded(true);
+      validateResult(data);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  // Check to see if the result has the correct expected length
+  const validateResult = (data) => {
+    // Split the result string into an array and remove the empty element at the end
+    const parsed = data.split(";").slice(0, -1);
+
+    parsed.length === postcodes.length - 1
+      ? setResult(parsed)
+      : setResult(false);
+    setHasLoaded(true);
+    setCurrentView("results");
   };
 
   return (

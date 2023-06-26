@@ -7,14 +7,14 @@ function Results({ setCurrentView, result }) {
   const totalMinutesArray = [];
   const totalDistanceArray = [];
 
-  const parsed = result.slice(0, result.length - 1).split(";");
-
-  parsed.map((item) => {
-    const newItem = item.split(",");
-    totalMinutesArray.push(parseInt(newItem[0]));
-    totalDistanceArray.push(parseFloat(newItem[1]));
-    return null;
-  });
+  if (!!result) {
+    result.map((item) => {
+      const newItem = item.split(",");
+      totalMinutesArray.push(parseInt(newItem[0]));
+      totalDistanceArray.push(parseFloat(newItem[1]));
+      return null;
+    });
+  }
 
   const totalMinutes = totalMinutesArray.reduce((acc, curr) => acc + curr, 0);
   const totalDistance = totalDistanceArray.reduce((acc, curr) => acc + curr, 0);
@@ -35,9 +35,11 @@ function Results({ setCurrentView, result }) {
       {result ? (
         <div className={styles.Container}>
           <h2 className={styles.SubHeading}>Your total travel distance is:</h2>
+          <i className={`${styles.Icon} fa-regular fa-map`}></i>
           <p className={styles.Results}>{totalDistance} miles</p>
 
           <h2 className={styles.SubHeading}>Your total travel time is:</h2>
+          <i className={`${styles.Icon} fa-regular fa-clock`}></i>
           {totalTime.hours === 0 ? (
             <p className={styles.Results}>{totalMinutes} minutes</p>
           ) : (
@@ -48,7 +50,9 @@ function Results({ setCurrentView, result }) {
         </div>
       ) : (
         <div className={styles.Container}>
-          <i className={`${styles.Triangle} fa-solid fa-triangle-exclamation`}></i>
+          <i
+            className={`${styles.Triangle} fa-solid fa-triangle-exclamation`}
+          ></i>
           <p>Oh dear! We seam to have a flat tyre...</p>
           <p>Please verify that all postcodes are valid and try again</p>
         </div>
