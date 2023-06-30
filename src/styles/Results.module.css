@@ -1,11 +1,12 @@
 .Container {
   margin: auto;
   width: 80vw;
+  padding-top: 1em;
 }
 
 .SubHeading {
-  padding: 1em 2em;
   color: #005f68;
+  margin: 0;
 }
 
 .Results {
@@ -15,6 +16,7 @@
 
 .Icon {
   font-size: 4em;
+  margin-top: .5em;
 }
 
 .Triangle {
