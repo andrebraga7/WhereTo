@@ -11,6 +11,7 @@ function App() {
   return (
     // To avoid using extra libraries like react-router-dom I used a ternary condition
     // to check the property of the currentView and load the appropriate view component
+    // This is a new test comment
     <div className={styles.App}>
       {currentView === "landing" ? (
         <Landing setCurrentView={setCurrentView} />
